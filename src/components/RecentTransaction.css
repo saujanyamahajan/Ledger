@@ -1,0 +1,8 @@
+
+.form {
+    border: 1px solid #444;      /* outline */
+    border-radius: 10px;         /* rounded corners */
+    background-color: #111;      /* dark background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* shadow */
+    padding: 10px;
+  }
