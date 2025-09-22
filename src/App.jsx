@@ -1,6 +1,6 @@
-//opimport { useState } from "react";
+//import { useState } from "react";
 import "./App.css";
-
+import AddTransaction from "./components/AddTransaction.jsx";
 // ✅ MVP Features
 // Add income & expense transactions
 // Show balance (total income – total expenses)
@@ -13,7 +13,17 @@ import "./App.css";
 // Data persistence (LocalStorage or backend API later)
 
 function App() {
-  
+  return (
+    <>
+      <h1>Finance Tracker </h1>
+      <h4>Manage your income and expenses</h4>
+      <AddTransaction />
+    </>
+  );
+}
+
+export default App;
+
 //   const [text, setText] = useState("");
 //   const [transactions, setTransaction] = useState([]);
 //   const addTransaction = () => {
@@ -47,6 +57,3 @@ function App() {
 //        </ul>
 //     </>
 //   );
- }
-
-export default App;

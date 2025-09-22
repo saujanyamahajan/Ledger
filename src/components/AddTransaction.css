@@ -1,0 +1,39 @@
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.form-group label{
+font-weight: 600;
+margin-bottom: 6px;
+color: #fff;
+}
+
+.form-group input,
+.form-group select{
+padding: 10px;  
+border-radius: 8px;
+border: 1px solid #333;
+background-color: #111;
+color: #fff;
+font-size: 14px;
+}
+#btnAddTransaction{
+    background-color: rgb(8, 105, 8);
+    color:#111 ;
+
+}
