@@ -2,7 +2,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
 function TransactionGraph({ transactions }) {
   return (
-    <div>
+    <div className="form">
       <h3>Analytics</h3>
       {transactions.length === 0 ? (
         <p>No Transaction</p>

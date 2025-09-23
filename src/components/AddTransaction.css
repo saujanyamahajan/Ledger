@@ -1,45 +1,40 @@
-
-.form-container {
-  width: 100%;            /* responsive */
-  max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: auto;
-    border: 1px solid #444;      
-    border-radius: 10px;       
-    background-color: #111;    
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
-    padding: 20px;
-  }
-  
-  .form-row {
-    display: flex;
-    gap: 20px;
-  }
-
-.form-group{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.form {
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #111;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 20px;
 }
-.form-group label{
-font-weight: 600;
-margin-bottom: 6px;
-color: #fff;
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* horizontal space between Type & Amount */
+  margin-bottom: 20px;
+  flex: 1;
+}
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #fff;
 }
 
 .form-group input,
-.form-group select{
-padding: 10px;  
-border-radius: 8px;
-border: 1px solid #333;
-background-color: #111;
-color: #fff;
-font-size: 14px;
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #111;
+  color: #fff;
+  font-size: 14px;
 }
-#btnAddTransaction{
-    background-color: rgb(8, 105, 8);
-    color:#111 ;
-
+#btnAddTransaction {
+  width: 100%;
+  background-color: rgb(8, 105, 8);
+  color: #111;
 }

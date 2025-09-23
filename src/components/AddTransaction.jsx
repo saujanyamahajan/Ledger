@@ -1,23 +1,50 @@
 import { useState } from "react";
 import "./AddTransaction.css";
-function AddTransaction({onAdd}) {
+
+function AddTransaction({ onAdd }) {
   const [type, setType] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
+  const incomeCategories = [
+    "Salary",
+    "Freelance",
+    "Investment",
+    "Gift",
+    "Other",
+  ];
+  const expenseCategories = [
+    "Food",
+    "Bills",
+    "Travel",
+    "Shopping",
+    "Healthcare",
+    "Entertainment",
+    "Other",
+  ];
+
   const btnAddTransaction = () => {
     if (!type || !amount || !description || !category) return;
-     onAdd({ type, amount: Number(amount), description, category });
+    const date = new Date().toISOString().split("T")[0];
+    onAdd({ type, amount: Number(amount), description, category, date });
     setType("");
     setAmount("");
     setDescription("");
     setCategory("");
   };
+
+  const availableCategories =
+    type === "Income"
+      ? incomeCategories
+      : type === "Expense"
+      ? expenseCategories
+      : [];
+
   return (
     <>
-      <h3>+ Add Transaction</h3>
-      <div className="form-container">
+      <div className="form">
+        <h3>+ Add Transaction</h3>
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="typeOfTransaction">Type</label>
@@ -71,11 +98,9 @@ function AddTransaction({onAdd}) {
             <option value="" disabled>
               Select Category
             </option>
-            <option>Salary</option>
-            <option>Freelance</option>
-            <option>Investment</option>
-            <option>Gift</option>
-            <option>Other</option>
+            {availableCategories.map((cat) => (
+              <option key={cat}>{cat}</option>
+            ))}
           </select>
         </div>
         <button id="btnAddTransaction" onClick={btnAddTransaction}>
