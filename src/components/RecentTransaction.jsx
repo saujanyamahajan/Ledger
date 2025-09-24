@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import "./RecentTransaction.css";
 
-function RecentTransaction({ transactions }) {
+function RecentTransaction({ transactions, onDelete }) {
   return (
     <>
       <div className="form">
@@ -12,12 +12,13 @@ function RecentTransaction({ transactions }) {
           <ul className="transactionList">
             {transactions.map((t, index) => (
               <li key={index} className="transactionCard">
-                <div className="transactionTop">
-                  <span className="transactionDescription">
-                    {t.description}
-                  </span>
+                <div className="transactionRow topRow">
+                  <div className="metaLeft">
+                    <span className="description">{t.description}</span>
+                    <span className="category">{t.category}</span>
+                  </div>
                   <span
-                    className={`transactionAmount ${
+                    className={`amount ${
                       t.type === "Income" ? "positive" : "negative"
                     }`}
                   >
@@ -26,9 +27,13 @@ function RecentTransaction({ transactions }) {
                       : `-₹${Math.abs(t.amount)}`}
                   </span>
                 </div>
-                <div className="transactionBottom">
-                  <span className="transactionType">{t.type}</span>
-                  <span className="transactionDate">{t.date}</span>
+
+                <div className="transactionRow bottomRow">
+                  <span className="date">{t.date}</span>
+
+                  <button className="deleteBtn" onClick={() => onDelete(index)}>
+                    Delete
+                  </button>
                 </div>
               </li>
             ))}

@@ -1,4 +1,4 @@
- import { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import AddTransaction from "./components/AddTransaction.jsx";
 import RecentTransaction from "./components/RecentTransaction.jsx";
@@ -20,13 +20,16 @@ function App() {
   const addTransaction = (transaction) => {
     setTransaction([...transactions, transaction]);
   };
+  const handleDelete = (index) => {
+    setTransaction((t) => t.filter((_, i) => i !== index));
+  };
   return (
     <>
       <h1>Finance Tracker </h1>
       <h4>Manage your income and expenses</h4>
       <AddTransaction onAdd={addTransaction} />
-      <RecentTransaction transactions={transactions} />
-      <TransactionGraph transactions={transactions}/>
+      <RecentTransaction transactions={transactions} onDelete={handleDelete} />
+      <TransactionGraph transactions={transactions} />
     </>
   );
 }

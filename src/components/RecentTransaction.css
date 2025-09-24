@@ -1,63 +1,82 @@
-.form {
-  border: 1px solid #444;
-  border-radius: 10px;
-  background-color: #111;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  padding: 20px;
-}
-
 .transactionList {
   list-style: none;
   padding: 0;
   margin: 0;
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 16px; */
 }
 
 .transactionCard {
+  background-color: #1e1e1e;
   border: 1px solid #444;
-  border-radius: 15px;
+  border-radius: 16px;
   padding: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: #eaeaea;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  color: #f5f4f4;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.transactionTop {
+.transactionCard.income {
+  background-color: #b5deb3; /* light green */
+  color: #1e1e1e;
+}
+
+.transactionCard.expense {
+  background-color: #2a2a2a;
+}
+
+.transactionRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 15px;
-  font-weight: 600;
 }
 
-.transactionBottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-  font-size: 0.9rem;
-  color: #444;
+.topRow {
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.transactionAmount {
+.amount {
   font-weight: bold;
 }
 
-.transactionAmount.positive {
+.amount.positive {
   color: green;
 }
 
-.transactionAmount.negative {
+.amount.negative {
   color: red;
 }
 
-.transactionType {
+.bottomRow {
+  margin-top: 8px;
+}
+
+.metaLeft {
+  display: flex;
+  gap: 12px;
+  color: #999;
+}
+
+.category {
   background-color: #f5f2eb;
-  padding: 4px 8px;
+  padding: 2px 8px;
   border-radius: 10px;
-  font-size: 0.8rem;
+  color: #333;
+  font-size: 12px;
+}
+
+.deleteBtn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.deleteBtn:hover {
+  background-color: #c0392b;
 }
