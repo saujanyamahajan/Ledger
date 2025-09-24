@@ -3,6 +3,7 @@ import "./App.css";
 import AddTransaction from "./components/AddTransaction.jsx";
 import RecentTransaction from "./components/RecentTransaction.jsx";
 import TransactionGraph from "./components/TransactionGraph.jsx";
+import AccountInfo from "./components/AccountInfo.jsx";
 
 // ✅ MVP Features
 // Add income & expense transactions
@@ -27,6 +28,7 @@ function App() {
     <>
       <h1>Finance Tracker </h1>
       <h4>Manage your income and expenses</h4>
+      <AccountInfo transactions={transactions} />
       <AddTransaction onAdd={addTransaction} />
       <RecentTransaction transactions={transactions} onDelete={handleDelete} />
       <TransactionGraph transactions={transactions} />

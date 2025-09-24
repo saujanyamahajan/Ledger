@@ -45,7 +45,7 @@
 }
 
 .amount.negative {
-  color: red;
+  color: rgb(221, 84, 84);
 }
 
 .bottomRow {
@@ -79,4 +79,11 @@
 
 .deleteBtn:hover {
   background-color: #c0392b;
+}
+.form {
+  margin-bottom: 30px; /*  gap after Add Transaction */
+}
+
+.recentTransactions {
+  margin-bottom: 30px; /*  gap after Recent Transactions */
 }
