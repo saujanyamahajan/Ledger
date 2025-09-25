@@ -8,3 +8,24 @@
 h4 {
   color: grey;
 }
+
+/* Light theme */
+body.light {
+  background-color: #f9f9f9;
+  color: #111;
+}
+
+/* Dark theme */
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+body.light button {
+  background-color: #111;
+  color: #fff;
+}
+
+body.dark button {
+  background-color: #eee;
+  color: #111;
+}

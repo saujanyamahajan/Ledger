@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import "./App.css";
 import AddTransaction from "./components/AddTransaction.jsx";
 import RecentTransaction from "./components/RecentTransaction.jsx";
@@ -18,6 +19,13 @@ import AccountInfo from "./components/AccountInfo.jsx";
 
 function App() {
   const [transactions, setTransaction] = useState([]);
+  const [theme, setTheme] = useState("light");
+
+  // Apply theme to body
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   const addTransaction = (transaction) => {
     setTransaction([...transactions, transaction]);
   };
@@ -28,6 +36,9 @@ function App() {
     <>
       <h1>Finance Tracker </h1>
       <h4>Manage your income and expenses</h4>
+      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+        Switch to {theme === "light" ? "dark" : "light"} theme
+      </button>
       <AccountInfo transactions={transactions} />
       <AddTransaction onAdd={addTransaction} />
       <RecentTransaction transactions={transactions} onDelete={handleDelete} />
