@@ -4,22 +4,15 @@
   /* margin: 0 auto; */
   padding: 50px;
 }
-
+.subHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 h4 {
   color: grey;
 }
 
-/* Light theme */
-body.light {
-  background-color: #f9f9f9;
-  color: #111;
-}
-
-/* Dark theme */
-body.dark {
-  background-color: #121212;
-  color: #eee;
-}
 body.light button {
   background-color: #111;
   color: #fff;
@@ -28,4 +21,46 @@ body.light button {
 body.dark button {
   background-color: #eee;
   color: #111;
+}
+
+body {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme */
+body.light {
+  --card-bg: #ffffff;
+  --border-color: #ccc;
+  --text-color: #111;
+  --input-bg: #f9f9f9;
+  --input-text: #111;
+  --btn-bg: #8ee2ef;
+  --btn-text: #fff;
+}
+
+/* Dark theme */
+body.dark {
+  --card-bg: #111;
+  --border-color: #444;
+  --text-color: #eee;
+  --input-bg: #222;
+  --input-text: #fff;
+  --btn-bg: #6be44d;
+  --btn-text: #111;
+}
+
+/* Icon button styling - remove default background and outline */
+button img {
+  display: block;
+}
+
+button:has(img) {
+  background: none !important;
+  border: none !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  outline: none !important;
+  box-shadow: none !important;
 }

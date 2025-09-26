@@ -5,6 +5,8 @@ import AddTransaction from "./components/AddTransaction.jsx";
 import RecentTransaction from "./components/RecentTransaction.jsx";
 import TransactionGraph from "./components/TransactionGraph.jsx";
 import AccountInfo from "./components/AccountInfo.jsx";
+import sunIcon from "./icons/sun.svg";
+import moonIcon from "./icons/moon.svg";
 
 // ✅ MVP Features
 // Add income & expense transactions
@@ -19,7 +21,7 @@ import AccountInfo from "./components/AccountInfo.jsx";
 
 function App() {
   const [transactions, setTransaction] = useState([]);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   // Apply theme to body
   useEffect(() => {
@@ -32,13 +34,23 @@ function App() {
   const handleDelete = (index) => {
     setTransaction((t) => t.filter((_, i) => i !== index));
   };
+  function changeTheme() {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
+
   return (
     <>
       <h1>Finance Tracker </h1>
+      <div className="subHeading">
       <h4>Manage your income and expenses</h4>
-      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-        Switch to {theme === "light" ? "dark" : "light"} theme
+      <button onClick={changeTheme}>
+        <img
+          src={theme === "light" ? moonIcon : sunIcon}
+          alt="Toggle theme"
+          style={{ width: "24px", height: "24px" }}
+        />{" "}
       </button>
+      </div>
       <AccountInfo transactions={transactions} />
       <AddTransaction onAdd={addTransaction} />
       <RecentTransaction transactions={transactions} onDelete={handleDelete} />

@@ -41,6 +41,18 @@ function AddTransaction({ onAdd }) {
       ? expenseCategories
       : [];
 
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+  const handleTypeChange = (e) => {
+    setType(e.target.value);
+  };
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
+  };
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
   return (
     <>
       <div className="form">
@@ -51,9 +63,7 @@ function AddTransaction({ onAdd }) {
             <select
               id="typeOfTransaction"
               value={type}
-              onChange={(e) => {
-                setType(e.target.value);
-              }}
+              onChange={handleTypeChange}
             >
               <option value="" disabled>
                 Select Type
@@ -68,9 +78,7 @@ function AddTransaction({ onAdd }) {
               id="amount"
               placeholder="0.00"
               type="number"
-              onChange={(e) => {
-                setAmount(e.target.value);
-              }}
+              onChange={handleAmountChange}
               value={amount}
             />
           </div>
@@ -80,9 +88,7 @@ function AddTransaction({ onAdd }) {
           <input
             id="description"
             placeholder="Enter the description"
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
+            onChange={handleDescriptionChange}
             value={description}
           />
         </div>
@@ -91,9 +97,7 @@ function AddTransaction({ onAdd }) {
           <select
             id="category"
             value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
+            onChange={handleCategoryChange}
           >
             <option value="" disabled>
               Select Category
