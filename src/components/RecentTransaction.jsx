@@ -29,7 +29,7 @@ function RecentTransaction({ transactions, onDelete }) {
                 </div>
 
                 <div className="transactionRow bottomRow">
-                  <span className="date">{t.date}</span>
+                  <span className="date">{t.date}</span> 
 
                   <button className="deleteBtn" onClick={() => onDelete(index)}>
                     Delete
