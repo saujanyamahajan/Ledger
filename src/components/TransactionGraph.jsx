@@ -18,7 +18,7 @@ function TransactionGraph({ transactions }) {
     "#F2AEBB",
     "#F5D3C4",
     "#FEE2AD",
-    "#F8FAB4",
+    "#F0A04B",
     "#E1E9C9",
   ];
 

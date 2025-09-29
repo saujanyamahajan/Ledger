@@ -22,13 +22,27 @@ import moonIcon from "./icons/moon.svg";
 function App() {
   const [transactions, setTransaction] = useState([]);
   const [theme, setTheme] = useState("dark");
-
+  // Load transactions from localStorage on first render
+  useEffect(() => {
+    const saveTransactions = localStorage.getItem("transactions");
+    if (saveTransactions) {
+      setTransaction(JSON.parse(saveTransactions));
+    }
+  }, []);
+  // Save transactions to localStorage whenever they change
+  useEffect(() => {
+    if (transactions.length > 0) {
+      localStorage.setItem("transactions", JSON.stringify(transactions));
+    }
+  }, [transactions]);
   // Apply theme to body
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
+  console.log("Saved in localStorage:", localStorage.getItem("transactions"));
 
   const addTransaction = (transaction) => {
+    console.log("Adding transaction:", transaction);
     setTransaction([...transactions, transaction]);
   };
   const handleDelete = (index) => {
@@ -42,14 +56,14 @@ function App() {
     <>
       <h1>Finance Tracker </h1>
       <div className="subHeading">
-      <h4>Manage your income and expenses</h4>
-      <button onClick={changeTheme}>
-        <img
-          src={theme === "light" ? moonIcon : sunIcon}
-          alt="Toggle theme"
-          style={{ width: "24px", height: "24px" }}
-        />{" "}
-      </button>
+        <h4>Manage your income and expenses</h4>
+        <button onClick={changeTheme}>
+          <img
+            src={theme === "light" ? moonIcon : sunIcon}
+            alt="Toggle theme"
+            style={{ width: "24px", height: "24px" }}
+          />{" "}
+        </button>
       </div>
       <AccountInfo transactions={transactions} />
       <AddTransaction onAdd={addTransaction} />
