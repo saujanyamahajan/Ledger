@@ -39,10 +39,10 @@ function App() {
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
-  console.log("Saved in localStorage:", localStorage.getItem("transactions"));
+  // console.log("Saved in localStorage:", localStorage.getItem("transactions"));
 
   const addTransaction = (transaction) => {
-    console.log("Adding transaction:", transaction);
+    // console.log("Adding transaction:", transaction);
     setTransaction([...transactions, transaction]);
   };
   const handleDelete = (index) => {
