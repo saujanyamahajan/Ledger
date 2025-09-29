@@ -12,7 +12,15 @@ import {
 } from "recharts";
 
 function TransactionGraph({ transactions }) {
-  const COLORS = ["#8884D8"];
+  const COLORS = [
+    "#A7AAE1",
+    "#BBDCE5",
+    "#F2AEBB",
+    "#F5D3C4",
+    "#FEE2AD",
+    "#F8FAB4",
+    "#E1E9C9",
+  ];
 
   const groupData = transactions.reduce(
     (acc, t) => {
