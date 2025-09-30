@@ -9,6 +9,8 @@ import {
   PieChart,
   Pie,
   Cell,
+  LineChart,
+  Line,
 } from "recharts";
 
 function TransactionGraph({ transactions }) {
@@ -48,6 +50,25 @@ function TransactionGraph({ transactions }) {
       }
       return acc;
     }, []);
+  const monthlyData = transactions.reduce((acc, t) => {
+    const month = t.date.slice(0, 7); // "YYYY-MM"
+    if (!acc[month]) {
+      acc[month] = { month, income: 0, expense: 0 };
+    }
+    if (t.type === "Income") {
+      acc[month].income += t.amount;
+    } else {
+      acc[month].expense += t.amount;
+    }
+    return acc;
+  }, {});
+
+  // Convert object → array
+  const monthlyTrend = Object.values(monthlyData).map((m) => ({
+    month: m.month,
+    balance: m.income - m.expense,
+  }));
+
   return (
     <div className="form">
       <h3>Analytics</h3>
@@ -85,6 +106,21 @@ function TransactionGraph({ transactions }) {
               </Pie>
               <Tooltip />
             </PieChart>
+          </ResponsiveContainer>
+          <h4>Monthly Balance Trend</h4>
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart data={monthlyTrend}>
+              <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Line
+                type="monotone"
+                dataKey="balance"
+                stroke="#82ca9d"
+                strokeWidth={2}
+              />
+            </LineChart>
           </ResponsiveContainer>
         </>
       )}
