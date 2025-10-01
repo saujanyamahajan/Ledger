@@ -1,8 +1,13 @@
 #root {
   max-width: 100%;
   width: 100%;
-  /* margin: 0 auto; */
-  padding: 50px;
+  padding: 20px; /* smaller default padding */
+}
+
+@media (min-width: 768px) {
+  #root {
+    padding: 40px 60px; /* bigger padding on tablets & desktops */
+  }
 }
 .subHeading {
   display: flex;
