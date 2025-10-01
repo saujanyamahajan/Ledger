@@ -22,6 +22,7 @@ import moonIcon from "./icons/moon.svg";
 function App() {
   const [transactions, setTransaction] = useState([]);
   const [theme, setTheme] = useState("dark");
+  const [active, setActive] = useState("overview");
   // Load transactions from localStorage on first render
   useEffect(() => {
     const saveTransactions = localStorage.getItem("transactions");
@@ -66,9 +67,42 @@ function App() {
         </button>
       </div>
       <AccountInfo transactions={transactions} />
-      <AddTransaction onAdd={addTransaction} />
-      <RecentTransaction transactions={transactions} onDelete={handleDelete} />
-      <TransactionGraph transactions={transactions} />
+      <div className="toggleBar">
+        <button
+          className={active === "overview" ? "active" : ""}
+          onClick={() => setActive("overview")}
+        >
+          Overview
+        </button>
+        <button
+          className={active === "charts" ? "active" : ""}
+          onClick={() => setActive("charts")}
+        >
+          Charts
+        </button>
+        <button
+          className={active === "transactions" ? "active" : ""}
+          onClick={() => setActive("transactions")}
+        >
+          Transactions
+        </button>
+      </div>
+      {active === "overview" && (
+        <>
+          <AddTransaction onAdd={addTransaction} />
+        </>
+      )}
+
+      {active === "charts" && (
+        <TransactionGraph transactions={transactions} />
+      )}
+
+      {active === "transactions" && (
+        <RecentTransaction
+          transactions={transactions}
+          onDelete={handleDelete}
+        />
+      )}
     </>
   );
 }
