@@ -98,11 +98,18 @@ button:has(img) {
 }
 .formcard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 30px;
   width: 100%;
 }
 
-.formROW {
-  width: 50%;
+/* Apply side-by-side layout only on big screens */
+@media (min-width: 768px) {
+  .formcard {
+    flex-direction: row;
+  }
+
+  .formROW {
+    width: 50%;
+  }
 }
