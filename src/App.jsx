@@ -88,14 +88,20 @@ function App() {
         </button>
       </div>
       {active === "overview" && (
-        <>
-          <AddTransaction onAdd={addTransaction} />
-        </>
+        <div className="formcard">
+          <div className="formROW">
+            <AddTransaction onAdd={addTransaction} />
+          </div>
+          <div className="formROW">
+            <RecentTransaction
+              transactions={transactions}
+              onDelete={handleDelete}
+            />
+          </div>
+        </div>
       )}
 
-      {active === "charts" && (
-        <TransactionGraph transactions={transactions} />
-      )}
+      {active === "charts" && <TransactionGraph transactions={transactions} />}
 
       {active === "transactions" && (
         <RecentTransaction

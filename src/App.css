@@ -83,7 +83,6 @@ button:has(img) {
 .toggleBar button {
   flex: 1;
   padding: 10px 0;
-  border: none;
   border-radius: 8px;
   background: transparent;
   color: var(--text-color);
@@ -96,4 +95,14 @@ button:has(img) {
   background-color: var(--btn-bg);
   color: var(--btn-text); /* matches your theme vars */
   font-weight: 600;
+}
+.formcard {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+}
+
+.formROW {
+  width: 50%;
 }
