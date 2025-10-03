@@ -55,7 +55,7 @@ function App() {
 
   return (
     <>
-      <h1>Finance Tracker </h1>
+      <h1>Flux</h1>
       <div className="subHeading">
         <h4>Manage your income and expenses</h4>
         <button onClick={changeTheme}>
