@@ -43,7 +43,7 @@ function RecentTransaction({ transactions, onDelete }) {
         <div className="filters fadeIn">
           <div className="filterItem">
             <label>Type</label>
-            <select
+            <select className="dropDown"
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
             >
@@ -55,7 +55,7 @@ function RecentTransaction({ transactions, onDelete }) {
 
           <div className="filterItem">
             <label>Category</label>
-            <select
+            <select className="dropDown"
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
             >
@@ -69,7 +69,7 @@ function RecentTransaction({ transactions, onDelete }) {
 
           <div className="filterItem">
             <label>Month</label>
-            <select
+            <select className="dropDown"
               value={monthFilter}
               onChange={(e) => setMonthFilter(e.target.value)}
             >

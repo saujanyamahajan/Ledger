@@ -20,13 +20,16 @@ h4 {
 }
 
 body.light button {
-  background-color: #111;
-  color: #fff;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+
 }
 
 body.dark button {
-  background-color: #eee;
-  color: #111;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
 }
 
 body {
